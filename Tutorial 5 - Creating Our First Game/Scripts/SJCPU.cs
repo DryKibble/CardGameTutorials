@@ -1,0 +1,39 @@
+//Copyright Krystal 2025. All rights reserved.
+//For educational purposes only.
+//Modification and derivatives of this code is permitted
+//Commercial use and distribution of this code and any derivatives
+//  is strictly prohibited.
+
+using Godot;
+using System;
+
+public partial class SJCPU : SJPlayer
+{
+  [Export]
+  Timer DealTimer;
+  [Export]
+  Timer SlapTimer;
+
+  public override void _PhysicsProcess(double delta)
+  {
+    if (IsMyTurn)
+    {
+      if (DealTimer.IsStopped())
+      {
+        DealTimer.Start(0.1f);
+      }
+    }
+  }
+
+  //Emits the Deal signal
+  private void _OnDealTimeout()
+  {
+    EmitSignal(SJPlayer.SignalName.Deal, this);
+  }
+
+  //Emits the Slap signal
+  private void _OnSlapTimeout()
+  {
+    EmitSignal(SJPlayer.SignalName.Slap, this);
+  }
+}
