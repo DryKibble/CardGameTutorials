@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7lu1t6v2hw0p"]
+
+[ext_resource type="Script" uid="uid://cn45i2wgtpvkc" path="res://Scripts/SJPlayer.cs" id="1_3q6ho"]
+[ext_resource type="Script" uid="uid://da5qs28pud7xe" path="res://Scripts/Deck.cs" id="1_nv3d2"]
+
+[node name="SJPlayer" type="Node3D" node_paths=PackedStringArray("iDeck")]
+script = ExtResource("1_3q6ho")
+iDeck = NodePath("iDeck")
+
+[node name="iDeck" type="Node3D" parent="."]
+script = ExtResource("1_nv3d2")

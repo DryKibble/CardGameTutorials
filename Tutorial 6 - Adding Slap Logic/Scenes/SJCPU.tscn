@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://2isbxw1y8lch"]
+
+[ext_resource type="Script" uid="uid://bs1tw50fcl3bb" path="res://Scripts/SJCPU.cs" id="1_i6ogw"]
+[ext_resource type="Script" uid="uid://da5qs28pud7xe" path="res://Scripts/Deck.cs" id="1_ktx5d"]
+
+[node name="SJCPU" type="Node3D" node_paths=PackedStringArray("DealTimer", "SlapTimer", "iDeck")]
+script = ExtResource("1_i6ogw")
+DealTimer = NodePath("DealTimer")
+SlapTimer = NodePath("SlapTimer")
+iDeck = NodePath("iDeck")
+
+[node name="iDeck" type="Node3D" parent="."]
+script = ExtResource("1_ktx5d")
+
+[node name="DealTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="SlapTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="DealTimer" to="." method="_OnDealTimeout"]
+[connection signal="timeout" from="SlapTimer" to="." method="_OnSlapTimeout"]
