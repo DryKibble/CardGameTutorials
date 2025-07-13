@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://2isbxw1y8lch"]
+
+[ext_resource type="Script" uid="uid://bs1tw50fcl3bb" path="res://Scripts/SJCPU.cs" id="1_i6ogw"]
+[ext_resource type="Script" uid="uid://da5qs28pud7xe" path="res://Scripts/Deck.cs" id="1_ktx5d"]
+[ext_resource type="ArrayMesh" uid="uid://caomohcrryxl4" path="res://Art Assets/Models/PlayerCursor.obj" id="3_tkm2g"]
+[ext_resource type="Material" uid="uid://dee8rnwm2vkpu" path="res://Art Assets/Textures/PlayerCursor/Cursor8.tres" id="4_84v6w"]
+[ext_resource type="Script" uid="uid://d0itkysev3224" path="res://Scripts/PlayerCursor.cs" id="5_84v6w"]
+
+[node name="SJCPU" type="Node3D" node_paths=PackedStringArray("DealTimer", "SlapTimer", "iDeck", "cursor")]
+script = ExtResource("1_i6ogw")
+DealTimer = NodePath("DealTimer")
+SlapTimer = NodePath("SlapTimer")
+iDeck = NodePath("iDeck")
+cursor = NodePath("iDeck/MeshInstance3D")
+
+[node name="iDeck" type="Node3D" parent="."]
+script = ExtResource("1_ktx5d")
+ExtraNodes = 1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="iDeck"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+mesh = ExtResource("3_tkm2g")
+surface_material_override/0 = ExtResource("4_84v6w")
+script = ExtResource("5_84v6w")
+
+[node name="DealTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="SlapTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="DealTimer" to="." method="_OnDealTimeout"]
+[connection signal="timeout" from="SlapTimer" to="." method="_OnSlapTimeout"]
