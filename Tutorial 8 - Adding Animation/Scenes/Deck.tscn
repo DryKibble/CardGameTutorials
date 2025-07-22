@@ -1,0 +1,225 @@
+[gd_scene load_steps=6 format=3 uid="uid://be766vxru7ue8"]
+
+[ext_resource type="Script" uid="uid://da5qs28pud7xe" path="res://Scripts/Deck.cs" id="1_0g7pp"]
+[ext_resource type="PackedScene" uid="uid://puox80gg16to" path="res://Scenes/Card.tscn" id="1_57cf8"]
+[ext_resource type="ArrayMesh" uid="uid://caomohcrryxl4" path="res://Art Assets/Models/PlayerCursor.obj" id="3_ug7lp"]
+[ext_resource type="Material" uid="uid://dee8rnwm2vkpu" path="res://Art Assets/Textures/PlayerCursor/Cursor8.tres" id="4_aj2l2"]
+[ext_resource type="Script" uid="uid://d0itkysev3224" path="res://Scripts/PlayerCursor.cs" id="4_wggy2"]
+
+[node name="Deck" type="Node3D"]
+script = ExtResource("1_0g7pp")
+curSize = 52
+ExtraNodes = 1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+mesh = ExtResource("3_ug7lp")
+surface_material_override/0 = ExtResource("4_aj2l2")
+script = ExtResource("4_wggy2")
+
+[node name="Card" parent="." instance=ExtResource("1_57cf8")]
+cardInfo = 1
+
+[node name="Card2" parent="." instance=ExtResource("1_57cf8")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.002, 0)
+cardInfo = 2
+
+[node name="Card3" parent="." instance=ExtResource("1_57cf8")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.004, 0)
+cardInfo = 3
+
+[node name="Card4" parent="." instance=ExtResource("1_57cf8")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.006, 0)
+cardInfo = 4
+
+[node name="Card5" parent="." instance=ExtResource("1_57cf8")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.008, 0)
+cardInfo = 5
+
+[node name="Card6" parent="." instance=ExtResource("1_57cf8")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.01, 0)
+cardInfo = 6
+
+[node name="Card7" parent="." instance=ExtResource("1_57cf8")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.012, 0)
+cardInfo = 7
+
+[node name="Card8" parent="." instance=ExtResource("1_57cf8")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.014, 0)
+cardInfo = 8
+
+[node name="Card9" parent="." instance=ExtResource("1_57cf8")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.016, 0)
+cardInfo = 9
+
+[node name="Card10" parent="." instance=ExtResource("1_57cf8")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.018, 0)
+cardInfo = 10
+
+[node name="Card11" parent="." instance=ExtResource("1_57cf8")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.02, 0)
+cardInfo = 11
+
+[node name="Card12" parent="." instance=ExtResource("1_57cf8")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.022, 0)
+cardInfo = 12
+
+[node name="Card13" parent="." instance=ExtResource("1_57cf8")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.024, 0)
+cardInfo = 13
+
+[node name="Card14" parent="." instance=ExtResource("1_57cf8")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.026125, 0)
+cardInfo = 17
+
+[node name="Card15" parent="." instance=ExtResource("1_57cf8")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.028125, 0)
+cardInfo = 18
+
+[node name="Card16" parent="." instance=ExtResource("1_57cf8")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.030125, 0)
+cardInfo = 19
+
+[node name="Card17" parent="." instance=ExtResource("1_57cf8")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.032125, 0)
+cardInfo = 20
+
+[node name="Card18" parent="." instance=ExtResource("1_57cf8")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.034125, 0)
+cardInfo = 21
+
+[node name="Card19" parent="." instance=ExtResource("1_57cf8")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.036125, 0)
+cardInfo = 22
+
+[node name="Card20" parent="." instance=ExtResource("1_57cf8")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.038125, 0)
+cardInfo = 23
+
+[node name="Card21" parent="." instance=ExtResource("1_57cf8")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.040125, 0)
+cardInfo = 24
+
+[node name="Card22" parent="." instance=ExtResource("1_57cf8")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.042125, 0)
+cardInfo = 25
+
+[node name="Card23" parent="." instance=ExtResource("1_57cf8")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.044125, 0)
+cardInfo = 26
+
+[node name="Card24" parent="." instance=ExtResource("1_57cf8")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.046125, 0)
+cardInfo = 27
+
+[node name="Card25" parent="." instance=ExtResource("1_57cf8")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.048125, 0)
+cardInfo = 28
+
+[node name="Card26" parent="." instance=ExtResource("1_57cf8")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.050125, 0)
+cardInfo = 29
+
+[node name="Card27" parent="." instance=ExtResource("1_57cf8")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.0522798, 0)
+cardInfo = 33
+
+[node name="Card28" parent="." instance=ExtResource("1_57cf8")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.0542798, 0)
+cardInfo = 34
+
+[node name="Card29" parent="." instance=ExtResource("1_57cf8")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.0562798, 0)
+cardInfo = 35
+
+[node name="Card30" parent="." instance=ExtResource("1_57cf8")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.0582798, 0)
+cardInfo = 36
+
+[node name="Card31" parent="." instance=ExtResource("1_57cf8")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.0602798, 0)
+cardInfo = 37
+
+[node name="Card32" parent="." instance=ExtResource("1_57cf8")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.0622798, 0)
+cardInfo = 38
+
+[node name="Card33" parent="." instance=ExtResource("1_57cf8")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.0642798, 0)
+cardInfo = 39
+
+[node name="Card34" parent="." instance=ExtResource("1_57cf8")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.0662798, 0)
+cardInfo = 40
+
+[node name="Card35" parent="." instance=ExtResource("1_57cf8")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.0682798, 0)
+cardInfo = 41
+
+[node name="Card36" parent="." instance=ExtResource("1_57cf8")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.0702798, 0)
+cardInfo = 42
+
+[node name="Card37" parent="." instance=ExtResource("1_57cf8")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.0722798, 0)
+cardInfo = 43
+
+[node name="Card38" parent="." instance=ExtResource("1_57cf8")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.0742798, 0)
+cardInfo = 44
+
+[node name="Card39" parent="." instance=ExtResource("1_57cf8")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.0762798, 0)
+cardInfo = 45
+
+[node name="Card40" parent="." instance=ExtResource("1_57cf8")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.0522798, 0)
+cardInfo = 49
+
+[node name="Card41" parent="." instance=ExtResource("1_57cf8")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.0542798, 0)
+cardInfo = 50
+
+[node name="Card42" parent="." instance=ExtResource("1_57cf8")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.0562798, 0)
+cardInfo = 51
+
+[node name="Card43" parent="." instance=ExtResource("1_57cf8")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.0582798, 0)
+cardInfo = 52
+
+[node name="Card44" parent="." instance=ExtResource("1_57cf8")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.0602798, 0)
+cardInfo = 53
+
+[node name="Card45" parent="." instance=ExtResource("1_57cf8")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.0622798, 0)
+cardInfo = 54
+
+[node name="Card46" parent="." instance=ExtResource("1_57cf8")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.0642798, 0)
+cardInfo = 55
+
+[node name="Card47" parent="." instance=ExtResource("1_57cf8")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.0662798, 0)
+cardInfo = 56
+
+[node name="Card48" parent="." instance=ExtResource("1_57cf8")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.0682798, 0)
+cardInfo = 57
+
+[node name="Card49" parent="." instance=ExtResource("1_57cf8")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.0702798, 0)
+cardInfo = 58
+
+[node name="Card50" parent="." instance=ExtResource("1_57cf8")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.0722798, 0)
+cardInfo = 59
+
+[node name="Card51" parent="." instance=ExtResource("1_57cf8")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.0742798, 0)
+cardInfo = 60
+
+[node name="Card52" parent="." instance=ExtResource("1_57cf8")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.0762798, 0)
+cardInfo = 61

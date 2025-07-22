@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://c7lu1t6v2hw0p"]
+
+[ext_resource type="Script" uid="uid://cn45i2wgtpvkc" path="res://Scripts/SJPlayer.cs" id="1_3q6ho"]
+[ext_resource type="Script" uid="uid://da5qs28pud7xe" path="res://Scripts/Deck.cs" id="1_nv3d2"]
+[ext_resource type="PackedScene" uid="uid://cqts6gciuqib7" path="res://Scenes/SlapShock.tscn" id="2_drw4l"]
+[ext_resource type="ArrayMesh" uid="uid://caomohcrryxl4" path="res://Art Assets/Models/PlayerCursor.obj" id="3_7d020"]
+[ext_resource type="Script" uid="uid://d0itkysev3224" path="res://Scripts/PlayerCursor.cs" id="4_waud5"]
+
+[node name="SJPlayer" type="Node3D" node_paths=PackedStringArray("iDeck", "cursor", "anim")]
+script = ExtResource("1_3q6ho")
+iDeck = NodePath("iDeck")
+cursor = NodePath("iDeck/MeshInstance3D")
+anim = NodePath("SlapShock/AnimationPlayer")
+
+[node name="SlapShock" parent="." instance=ExtResource("2_drw4l")]
+transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, -1.5)
+
+[node name="iDeck" type="Node3D" parent="."]
+script = ExtResource("1_nv3d2")
+ExtraNodes = 1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="iDeck"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+mesh = ExtResource("3_7d020")
+script = ExtResource("4_waud5")
+
+[editable path="SlapShock"]
