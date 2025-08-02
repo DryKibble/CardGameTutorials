@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cg2x5urw5wro4"]
+
+[ext_resource type="Texture2D" uid="uid://mx1b4v7gvvwq" path="res://Textures/PlayerCursor/Cursor Emission6.png" id="1_keyuj"]
+
+[resource]
+albedo_texture = ExtResource("1_keyuj")
+emission_texture = ExtResource("1_keyuj")
