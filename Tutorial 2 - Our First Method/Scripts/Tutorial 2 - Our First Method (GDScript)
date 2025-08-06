@@ -1,0 +1,37 @@
+extends CharacterBody3D
+
+# stores card info as 8-bit integer
+@export var card_info: int = 0b00000000
+
+# constant bitmask to extract rank (lowest 4 bits)
+const RANK: int = 0b00001111
+
+# constant bitmask to extract suit (bits 4 and 5)
+const SUIT: int = 0b00110000
+
+# array of suit names (index 0–3)
+const SUITS := ["Spades", "Diamonds", "Clubs", "Hearts"]
+
+# scale factor for card dimensions
+const SCALE: int = 10
+
+# physical dimensions of the card
+const HEIGHT: float = 0.0002 * SCALE
+const LENGTH: float = 0.00889 * SCALE
+const WIDTH: float = 0.00635 * SCALE
+
+# for when the node is added to the scene
+func _ready():
+    # Print the string representation of this card
+    print(to_string())
+
+# return actual card name
+func _to_string() -> String:
+    # extract the rank
+    var rank := card_info & RANK
+
+    # extract suit index by masking with SUIT and shifting right by 4
+    var suit_index := (card_info & SUIT) >> 4
+
+    # return formatted string using rank and suit
+    return "The %d of %s" % [rank, SUITS[suit_index]]
