@@ -26,7 +26,7 @@ func _ready():
     print(to_string())
 
 # return actual card name
-func to_string() -> String:
+func _to_string() -> String:
     # extract the rank
     var rank := card_info & RANK
 
