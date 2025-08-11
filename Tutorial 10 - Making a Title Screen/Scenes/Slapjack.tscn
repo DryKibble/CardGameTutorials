@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://ddgxdtw7regv2"]
+
+[ext_resource type="Script" uid="uid://ctcxgf4ujb1du" path="res://Scripts/SJGameManager.cs" id="1_pf2rx"]
+[ext_resource type="PackedScene" uid="uid://be766vxru7ue8" path="res://Scenes/Deck.tscn" id="2_cbmfm"]
+[ext_resource type="PackedScene" uid="uid://c7lu1t6v2hw0p" path="res://Scenes/SJPlayer.tscn" id="3_fotes"]
+[ext_resource type="PackedScene" uid="uid://2isbxw1y8lch" path="res://Scenes/SJCPU.tscn" id="4_fotes"]
+[ext_resource type="PackedScene" uid="uid://puox80gg16to" path="res://Scenes/Card.tscn" id="5_golbp"]
+
+[node name="GameManager" type="Node" node_paths=PackedStringArray("deck", "player", "cpu", "SlapTimer")]
+script = ExtResource("1_pf2rx")
+deck = NodePath("oDeck")
+player = NodePath("SJPlayer")
+cpu = NodePath("SJCPU")
+SlapTimer = NodePath("SlapTimer")
+
+[node name="SlapTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="oDeck" parent="." instance=ExtResource("2_cbmfm")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 2.5, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Camera3D"]
+
+[node name="SJPlayer" parent="." node_paths=PackedStringArray("oDeck") instance=ExtResource("3_fotes")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.5)
+oDeck = NodePath("../oDeck")
+
+[node name="SJCPU" parent="." node_paths=PackedStringArray("oDeck") instance=ExtResource("4_fotes")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -1.5)
+oDeck = NodePath("../oDeck")
+
+[node name="Card" parent="." instance=ExtResource("5_golbp")]
+transform = Transform3D(0.777475, 0, 0.628913, 0, 1, 0, -0.628913, 0, 0.777475, 0, 0, 1.5)
+visible = false
+
+[connection signal="StopSlapTimer" from="." to="SJCPU" method="_StopSlapTimer"]
+[connection signal="timeout" from="SlapTimer" to="." method="_OnSlapTimeout"]
+[connection signal="Deal" from="SJPlayer" to="." method="_OnDeal"]
+[connection signal="Skip" from="SJPlayer" to="." method="_OnSkip"]
+[connection signal="Slap" from="SJPlayer" to="." method="_OnSlap"]
+[connection signal="Deal" from="SJCPU" to="." method="_OnDeal"]
+[connection signal="Skip" from="SJCPU" to="." method="_OnSkip"]
+[connection signal="Slap" from="SJCPU" to="." method="_OnSlap"]
