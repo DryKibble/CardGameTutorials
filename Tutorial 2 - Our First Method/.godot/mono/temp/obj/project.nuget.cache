@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "m9UepgoHpE8=",
+  "success": true,
+  "projectFilePath": "/Users/oliverlie/Documents/GitHub/CardGameTutorials/Tutorial 2 - Our First Method/52CardsTutorials.csproj",
+  "expectedPackageFiles": [
+    "/Users/oliverlie/.nuget/packages/godot.sourcegenerators/4.4.1/godot.sourcegenerators.4.4.1.nupkg.sha512",
+    "/Users/oliverlie/.nuget/packages/godotsharp/4.4.1/godotsharp.4.4.1.nupkg.sha512",
+    "/Users/oliverlie/.nuget/packages/godotsharpeditor/4.4.1/godotsharpeditor.4.4.1.nupkg.sha512",
+    "/Users/oliverlie/.nuget/packages/microsoft.netcore.app.ref/8.0.18/microsoft.netcore.app.ref.8.0.18.nupkg.sha512",
+    "/Users/oliverlie/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.18/microsoft.aspnetcore.app.ref.8.0.18.nupkg.sha512"
+  ],
+  "logs": []
+}
