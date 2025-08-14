@@ -1,0 +1,12 @@
+Goal: Win all the cards by slapping the Jack as it is played in the center.
+
+Setup: The cards are dealt to each player one by one into their hand until there are no more cards to deal. The hands do not have to be even
+
+How To Play: The starting player is chosen at random, and the turn ordering goes clockwise (to the right). Each player can either deal a card to the center or slap the center deck. When a Jack is in the center, the first person to slap the center deck gets all the cards in the deck, which are combined and shuffled into their hand. If two or more players slap the deck at the same time, the winner is chosen randomly. If a player slaps a card that is not a Jack, they must give a card to the player who dealt that card.
+
+If a player has no more cards, they are still able to play. They are allowed to slap a Jack to gain a new hand. However, if they slap a card that is not a Jack, or if fail to slap a Jack, they are out of the game.
+
+Controls:
+Left Mouse Button/Left Click to Deal
+Space Bar: Slap
+Esc: Pause/Resume

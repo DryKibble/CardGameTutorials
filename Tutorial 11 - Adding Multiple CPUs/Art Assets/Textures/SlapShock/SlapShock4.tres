@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bd3o8sb1ymrcr"]
+
+[ext_resource type="Texture2D" uid="uid://cy5m4oghafdei" path="res://Textures/SlapShock/SlapShock4.png" id="1_yg1b7"]
+
+[resource]
+cull_mode = 2
+albedo_texture = ExtResource("1_yg1b7")
+emission_enabled = true
+emission_texture = ExtResource("1_yg1b7")

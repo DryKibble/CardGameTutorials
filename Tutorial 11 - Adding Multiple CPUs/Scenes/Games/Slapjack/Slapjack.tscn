@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddgxdtw7regv2"]
+
+[ext_resource type="Script" uid="uid://cxv8388xatafw" path="res://Scripts/Games/Slapjack/SJGameManager.cs" id="1_s5sw7"]
+[ext_resource type="PackedScene" uid="uid://be766vxru7ue8" path="res://Scenes/Deck.tscn" id="2_kxby2"]
+[ext_resource type="PackedScene" uid="uid://c7lu1t6v2hw0p" path="res://Scenes/Games/Slapjack/SJPlayer.tscn" id="3_3j72f"]
+
+[node name="GameManager" type="Node" node_paths=PackedStringArray("deck", "player", "SlapTimer")]
+script = ExtResource("1_s5sw7")
+deck = NodePath("oDeck")
+player = NodePath("SJPlayer")
+SlapTimer = NodePath("SlapTimer")
+
+[node name="SlapTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="oDeck" parent="." instance=ExtResource("2_kxby2")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 2.5, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Camera3D"]
+
+[node name="SJPlayer" parent="." node_paths=PackedStringArray("oDeck") instance=ExtResource("3_3j72f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.5)
+oDeck = NodePath("../oDeck")
+
+[connection signal="timeout" from="SlapTimer" to="." method="_OnSlapTimeout"]
+[connection signal="Deal" from="SJPlayer" to="." method="_OnDeal"]
+[connection signal="Skip" from="SJPlayer" to="." method="_OnSkip"]
+[connection signal="Slap" from="SJPlayer" to="." method="_OnSlap"]
