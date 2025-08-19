@@ -1,0 +1,7 @@
+Goal: Stack all cards on the Aces
+
+Setup: The cards are dealt to 7 spreads
+
+How To Play: Click or drag cards of different suits and ranks on top of each other. For instance: a 9 of Diamonds on top of a 10 of Spades. For Aces, put cards with the same suit in sequential rank on top of each other. Ie A->2->3...
+
+Controls: Left Mouse Button to click and/or drag, then release to move the cards. There is no undo/redo, so don't make mistakes :)

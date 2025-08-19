@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SJBehavior" load_steps=2 format=3 uid="uid://b1akl2tyyj1qg"]
+
+[ext_resource type="Script" uid="uid://byaceae2tdxqp" path="res://Scripts/Games/Slapjack/SJBehavior.cs" id="1_n7ywq"]
+
+[resource]
+script = ExtResource("1_n7ywq")
+DealTimes = Vector2(0.3, 0.5)
+SlapTimes = PackedVector2Array(0.2, 0.4, 0, 0)
+MistakeThreshold = 100
+metadata/_custom_type_script = "uid://byaceae2tdxqp"
