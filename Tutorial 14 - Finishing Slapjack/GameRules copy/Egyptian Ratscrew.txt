@@ -1,0 +1,20 @@
+Goal: Win all the cards by slapping the deck.
+
+Setup: The cards are dealt to each player one by one into their hand until there are no more cards to deal. The hands do not have to be even
+
+How To Play: The starting player is chosen at random, and the turn ordering goes clockwise (to the right). Each player can either deal a card to the center or slap the center deck. When a valid slap pattern is in the center, the first person to slap the center deck gets all the cards in the deck, which are combined and shuffled into their hand. If two or more players slap the deck at the same time, the winner is chosen randomly. If a player slaps a card that is not a valid slap pattern, they must deal one or two cards to the top of the center deck.
+
+Slap Patterns:
+	Double: Two cards of the same value are placed down on top of each other. For example, a five and a five.
+
+	Sandwich: Two cards of the same value are placed down with one card of differing value in between. For example, a King, a Jack, and a King.
+
+	Top-Bottom: The card on the top of the deck and the card on the bottom of the deck are the same.
+
+	Tens: When two cards played consecutively, or with a royalty card in between, add up to 10. An Ace counts as 1. For example: 4, 6 or A, Q, 9
+
+	Four in a Row: When four cards with values in ascending or descending order are placed. For example: 5, 6, 7, 8, or Q, K, A, 2.
+
+	Marriage: A King and Queen are placed next to each other. For example: K, Q, or Q, K
+
+If a player has no more cards, they are still able to play to slap in until someone has all the cards and is declared the winner.

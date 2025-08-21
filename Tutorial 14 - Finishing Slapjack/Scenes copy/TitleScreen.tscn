@@ -1,0 +1,160 @@
+[gd_scene load_steps=10 format=3 uid="uid://5fvxlubh4wk"]
+
+[ext_resource type="Script" uid="uid://koomhljfq71d" path="res://Scripts/TitleScreen/TitleScreen.cs" id="1_8l4an"]
+[ext_resource type="Script" uid="uid://drx8bli4eq2t4" path="res://Scripts/TitleScreen/ResponsiveMarginContainer.cs" id="2_emot1"]
+[ext_resource type="Resource" uid="uid://dixwau11ggu16" path="res://Art Assets/GUI/MarginContainer.tres" id="3_bawyk"]
+[ext_resource type="Script" uid="uid://c5rvkcj5cuqdk" path="res://Scripts/TitleScreen/ResponsiveVBoxContainer.cs" id="3_i5sur"]
+[ext_resource type="Script" uid="uid://vavse8e0uiw8" path="res://Scripts/TitleScreen/GameButton.cs" id="3_n15yj"]
+[ext_resource type="Theme" uid="uid://bcrhg6vogtm6h" path="res://Art Assets/GUI/Button.tres" id="4_emot1"]
+[ext_resource type="Script" uid="uid://b44hwnwyrtw5q" path="res://Scripts/TitleScreen/NumCPULabel.cs" id="6_7whhf"]
+[ext_resource type="Script" uid="uid://cwa44xdrep8xl" path="res://Scripts/TitleScreen/CPUDifficultyLabel.cs" id="7_5c2t2"]
+[ext_resource type="Resource" uid="uid://b3oswvp82jvth" path="res://Art Assets/GUI/DefaultVBoxContainer.tres" id="7_qfyqv"]
+
+[node name="TitleScreen" type="Control" node_paths=PackedStringArray("GameMenu", "GameInfo", "Rules")]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8l4an")
+GameMenu = NodePath("GameMenu")
+GameInfo = NodePath("GameInfo")
+Rules = NodePath("GameInfo/VBoxContainer/ScrollContainer/Rules")
+
+[node name="GameMenu" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_emot1")
+Responsive = ExtResource("3_bawyk")
+
+[node name="Title" type="Label" parent="GameMenu"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 60
+text = "52 Cards"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameMenu"]
+layout_mode = 2
+alignment = 1
+script = ExtResource("3_i5sur")
+Responsive = ExtResource("7_qfyqv")
+
+[node name="Slapjack" type="Button" parent="GameMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("4_emot1")
+text = "Slapjack"
+script = ExtResource("3_n15yj")
+
+[node name="Copyright" type="Label" parent="GameMenu"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 30
+text = "©2025 Krystal3D"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="GameInfo" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_emot1")
+Responsive = ExtResource("3_bawyk")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameInfo"]
+layout_mode = 2
+script = ExtResource("3_i5sur")
+Responsive = ExtResource("7_qfyqv")
+
+[node name="BackButton" type="Button" parent="GameInfo/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("4_emot1")
+theme_override_font_sizes/font_size = 25
+text = "Back"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="GameInfo/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Rules" type="RichTextLabel" parent="GameInfo/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 25
+text = "Goal: Win all the cards by slapping the Jack as it is played in the center.
+
+Setup: The cards are dealt to each player one by one into their hand until there are no more cards to deal. The hands do not have to be even
+
+How To Play: The starting player is chosen at random, and the turn ordering goes clockwise (to the right). Each player can either deal a card to the center or slap the center deck. When a Jack is in the center, the first person to slap the center deck gets all the cards in the deck, which are combined and shuffled into their hand. If two or more players slap the deck at the same time, the winner is chosen randomly. If a player slaps a card that is not a Jack, they must give a card to the player who dealt that card.
+
+If a player has no more cards, they are still able to play. They are allowed to slap a Jack to gain a new hand. However, if they slap a card that is not a Jack, or if fail to slap a Jack, they are out of the game.
+
+Controls:
+Left Mouse Button/Left Click to Deal
+Space Bar: Slap
+Esc: Pause/Resume"
+fit_content = true
+
+[node name="Settings" type="HBoxContainer" parent="GameInfo/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 300
+alignment = 1
+
+[node name="NumCPUs" type="VBoxContainer" parent="GameInfo/VBoxContainer/Settings"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+
+[node name="CPULabel" type="Label" parent="GameInfo/VBoxContainer/Settings/NumCPUs"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Num CPUs: 1"
+script = ExtResource("6_7whhf")
+
+[node name="CPUs" type="HSlider" parent="GameInfo/VBoxContainer/Settings/NumCPUs"]
+layout_mode = 2
+size_flags_vertical = 2
+min_value = 1.0
+max_value = 7.0
+value = 1.0
+
+[node name="CPUDifficulty" type="VBoxContainer" parent="GameInfo/VBoxContainer/Settings"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+
+[node name="DifficultyLabel" type="Label" parent="GameInfo/VBoxContainer/Settings/CPUDifficulty"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "CPU Difficulty: Easy "
+script = ExtResource("7_5c2t2")
+
+[node name="Difficulty" type="HSlider" parent="GameInfo/VBoxContainer/Settings/CPUDifficulty"]
+layout_mode = 2
+size_flags_vertical = 2
+max_value = 4.0
+
+[node name="PlayButton" type="Button" parent="GameInfo/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = ExtResource("4_emot1")
+theme_override_font_sizes/font_size = 30
+text = "Play"
+
+[connection signal="GameSelected" from="GameMenu/VBoxContainer/Slapjack" to="." method="_OnGameSelect"]
+[connection signal="pressed" from="GameMenu/VBoxContainer/Slapjack" to="GameMenu/VBoxContainer/Slapjack" method="_OnGamePressed"]
+[connection signal="pressed" from="GameInfo/VBoxContainer/BackButton" to="." method="_OnBackPress"]
+[connection signal="value_changed" from="GameInfo/VBoxContainer/Settings/NumCPUs/CPUs" to="GameInfo/VBoxContainer/Settings/NumCPUs/CPULabel" method="_OnNumCPUChange"]
+[connection signal="value_changed" from="GameInfo/VBoxContainer/Settings/CPUDifficulty/Difficulty" to="GameInfo/VBoxContainer/Settings/CPUDifficulty/DifficultyLabel" method="_OnCPUDifficultyChange"]
+[connection signal="pressed" from="GameInfo/VBoxContainer/PlayButton" to="." method="_OnPlayPress"]

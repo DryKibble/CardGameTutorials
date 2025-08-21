@@ -1,0 +1,154 @@
+[gd_scene load_steps=15 format=3 uid="uid://ddgxdtw7regv2"]
+
+[ext_resource type="Script" uid="uid://bh4tif3iopmjo" path="res://Scripts/PauseMenu.cs" id="1_bfab1"]
+[ext_resource type="Script" uid="uid://cxv8388xatafw" path="res://Scripts/Games/Slapjack/SJGameManager.cs" id="1_s5sw7"]
+[ext_resource type="Resource" uid="uid://jyu52uk1mhmp" path="res://Scenes/Games/Slapjack/EasySJ.tres" id="2_3j72f"]
+[ext_resource type="Script" uid="uid://drx8bli4eq2t4" path="res://Scripts/TitleScreen/ResponsiveMarginContainer.cs" id="2_bsu3g"]
+[ext_resource type="PackedScene" uid="uid://be766vxru7ue8" path="res://Scenes/Deck.tscn" id="2_kxby2"]
+[ext_resource type="PackedScene" uid="uid://c7lu1t6v2hw0p" path="res://Scenes/Games/Slapjack/SJPlayer.tscn" id="3_3j72f"]
+[ext_resource type="Resource" uid="uid://67as70d5nwcu" path="res://Scenes/Games/Slapjack/MediumSJ.tres" id="3_bfab1"]
+[ext_resource type="Script" uid="uid://c5rvkcj5cuqdk" path="res://Scripts/TitleScreen/ResponsiveVBoxContainer.cs" id="3_mbg4t"]
+[ext_resource type="Resource" uid="uid://dixwau11ggu16" path="res://Art Assets/GUI/MarginContainer.tres" id="3_rmgbv"]
+[ext_resource type="Resource" uid="uid://b3oswvp82jvth" path="res://Art Assets/GUI/DefaultVBoxContainer.tres" id="4_307fp"]
+[ext_resource type="Theme" uid="uid://bcrhg6vogtm6h" path="res://Art Assets/GUI/Button.tres" id="4_mbg4t"]
+[ext_resource type="Resource" uid="uid://dg1mapi15fhno" path="res://Scenes/Games/Slapjack/HardSJ.tres" id="4_tagjn"]
+[ext_resource type="Resource" uid="uid://b1akl2tyyj1qg" path="res://Scenes/Games/Slapjack/MasterSJ.tres" id="5_bsu3g"]
+[ext_resource type="Resource" uid="uid://cvjbke638mp5h" path="res://Art Assets/GUI/SmallContainer.tres" id="6_wxhmw"]
+
+[node name="PauseMenu" type="Node" node_paths=PackedStringArray("Menu", "WinScreen", "Rules")]
+process_mode = 3
+script = ExtResource("1_bfab1")
+Menu = NodePath("CanvasLayer")
+WinScreen = NodePath("CanvasLayer/ColorRect/GameInfo/WinScreen")
+Rules = NodePath("CanvasLayer/ColorRect/GameInfo/Rules")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.498039, 0.498039, 0.498039, 0.498039)
+
+[node name="GameInfo" type="MarginContainer" parent="CanvasLayer/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_bsu3g")
+Responsive = ExtResource("3_rmgbv")
+
+[node name="WinScreen" type="VBoxContainer" parent="CanvasLayer/ColorRect/GameInfo"]
+visible = false
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/ColorRect/GameInfo/WinScreen"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 100
+text = "You Win!"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/ColorRect/GameInfo/WinScreen"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+script = ExtResource("3_mbg4t")
+Responsive = ExtResource("6_wxhmw")
+
+[node name="MainMenu" type="Button" parent="CanvasLayer/ColorRect/GameInfo/WinScreen/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_mbg4t")
+text = "Main Menu"
+
+[node name="Restart" type="Button" parent="CanvasLayer/ColorRect/GameInfo/WinScreen/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_mbg4t")
+text = "Restart"
+
+[node name="Rules" type="VBoxContainer" parent="CanvasLayer/ColorRect/GameInfo"]
+layout_mode = 2
+script = ExtResource("3_mbg4t")
+Responsive = ExtResource("4_307fp")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/ColorRect/GameInfo/Rules"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Rules" type="RichTextLabel" parent="CanvasLayer/ColorRect/GameInfo/Rules/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 25
+text = "Goal: Win all the cards by slapping the Jack as it is played in the center.
+
+Setup: The cards are dealt to each player one by one into their hand until there are no more cards to deal. The hands do not have to be even
+
+How To Play: The starting player is chosen at random, and the turn ordering goes clockwise (to the right). Each player can either deal a card to the center or slap the center deck. When a Jack is in the center, the first person to slap the center deck gets all the cards in the deck, which are combined and shuffled into their hand. If two or more players slap the deck at the same time, the winner is chosen randomly. If a player slaps a card that is not a Jack, they must give a card to the player who dealt that card.
+
+If a player has no more cards, they are still able to play. They are allowed to slap a Jack to gain a new hand. However, if they slap a card that is not a Jack, or if fail to slap a Jack, they are out of the game.
+
+Controls:
+Left Mouse Button/Left Click to Deal
+Space Bar: Slap
+Esc: Pause/Resume"
+fit_content = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/ColorRect/GameInfo/Rules"]
+layout_mode = 2
+size_flags_horizontal = 4
+script = ExtResource("3_mbg4t")
+Responsive = ExtResource("6_wxhmw")
+
+[node name="MainMenu" type="Button" parent="CanvasLayer/ColorRect/GameInfo/Rules/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_mbg4t")
+text = "Main Menu"
+
+[node name="Restart" type="Button" parent="CanvasLayer/ColorRect/GameInfo/Rules/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_mbg4t")
+text = "Restart"
+
+[node name="Resume" type="Button" parent="CanvasLayer/ColorRect/GameInfo/Rules/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_mbg4t")
+text = "Resume"
+
+[node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("deck", "player", "SlapTimer")]
+process_mode = 1
+script = ExtResource("1_s5sw7")
+deck = NodePath("oDeck")
+player = NodePath("SJPlayer")
+SlapTimer = NodePath("SlapTimer")
+Behaviors = Array[Object]([ExtResource("2_3j72f"), ExtResource("3_bfab1"), ExtResource("4_tagjn"), ExtResource("5_bsu3g")])
+
+[node name="SlapTimer" type="Timer" parent="GameManager"]
+one_shot = true
+
+[node name="oDeck" parent="GameManager" instance=ExtResource("2_kxby2")]
+
+[node name="Camera3D" type="Camera3D" parent="GameManager"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 2.5, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="GameManager/Camera3D"]
+
+[node name="SJPlayer" parent="GameManager" node_paths=PackedStringArray("oDeck") instance=ExtResource("3_3j72f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.5)
+oDeck = NodePath("../oDeck")
+
+[connection signal="pressed" from="CanvasLayer/ColorRect/GameInfo/WinScreen/VBoxContainer/MainMenu" to="." method="_OnMainMenuPressed"]
+[connection signal="pressed" from="CanvasLayer/ColorRect/GameInfo/WinScreen/VBoxContainer/Restart" to="." method="_OnRestartPressed"]
+[connection signal="pressed" from="CanvasLayer/ColorRect/GameInfo/Rules/VBoxContainer/MainMenu" to="." method="_OnMainMenuPressed"]
+[connection signal="pressed" from="CanvasLayer/ColorRect/GameInfo/Rules/VBoxContainer/Restart" to="." method="_OnRestartPressed"]
+[connection signal="pressed" from="CanvasLayer/ColorRect/GameInfo/Rules/VBoxContainer/Resume" to="." method="_OnResumePressed"]
+[connection signal="Draw" from="GameManager" to="." method="_OnGameDraw"]
+[connection signal="timeout" from="GameManager/SlapTimer" to="GameManager" method="_OnSlapTimeout"]
+[connection signal="Deal" from="GameManager/SJPlayer" to="GameManager" method="_OnDeal"]
+[connection signal="Skip" from="GameManager/SJPlayer" to="GameManager" method="_OnSkip"]
+[connection signal="Slap" from="GameManager/SJPlayer" to="GameManager" method="_OnSlap"]

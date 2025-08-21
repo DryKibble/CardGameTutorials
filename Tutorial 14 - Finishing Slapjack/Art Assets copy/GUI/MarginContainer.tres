@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ResponsiveResource" load_steps=2 format=3 uid="uid://dixwau11ggu16"]
+
+[ext_resource type="Script" uid="uid://b5mujjwdyea4" path="res://Scripts/TitleScreen/ResponsiveResource.cs" id="1_hbo7w"]
+
+[resource]
+script = ExtResource("1_hbo7w")
+Ratio = 0.05
+MinWidth = 25
+MaxWidth = 128
+metadata/_custom_type_script = "uid://b5mujjwdyea4"
